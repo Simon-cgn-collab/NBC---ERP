@@ -522,7 +522,7 @@ if "Accueil" in page:
             fig = px.bar(ca, x="Mois", y="CA", color_discrete_sequence=["#C9A84C"], text="CA")
             fig.update_traces(texttemplate="%{text:,} €", textposition="outside", marker_line_width=0)
             fig.update_layout(plot_bgcolor="transparent", paper_bgcolor="transparent",
-                              font_color="#8FA3B8", showlegend=False,
+                              font=dict(color="#8FA3B8"), showlegend=False,
                               yaxis=dict(showgrid=True, gridcolor="#1E3148", color="#4A6A8A"),
                               xaxis=dict(color="#4A6A8A"), margin=dict(t=24,b=0,l=0,r=0))
             st.plotly_chart(fig, use_container_width=True)
@@ -537,10 +537,10 @@ if "Accueil" in page:
                           color_discrete_sequence=["#C9A84C","#3A9BD5","#9B59B6","#27AE60","#E8834A"],
                           hole=0.5)
             fig2.update_layout(plot_bgcolor="transparent", paper_bgcolor="transparent",
-                               font_color="#8FA3B8", showlegend=True,
+                               font=dict(color="#8FA3B8"), showlegend=True,
                                legend=dict(font=dict(color="#8FA3B8",size=11)),
                                margin=dict(t=10,b=10,l=0,r=0))
-            fig2.update_traces(textinfo="percent", textfont_color="white")
+            fig2.update_traces(textinfo="percent", textfont=dict(color="white"))
             st.plotly_chart(fig2, use_container_width=True)
 
 # ══════════════════════════════════════════════════════════════════
@@ -744,9 +744,9 @@ elif "Compta" in page:
         fig = px.pie(cam, values="CA", names="Marque", hole=0.55,
                      color_discrete_sequence=["#C9A84C","#3A9BD5","#9B59B6","#27AE60","#E8834A"])
         fig.update_layout(plot_bgcolor="transparent",paper_bgcolor="transparent",
-                          font_color="#8FA3B8",legend=dict(font=dict(color="#8FA3B8")),
+                          font=dict(color="#8FA3B8"),legend=dict(font=dict(color="#8FA3B8")),
                           margin=dict(t=10,b=10))
-        fig.update_traces(textinfo="percent",textfont_color="white")
+        fig.update_traces(textinfo="percent",textfont=dict(color="white"))
         st.plotly_chart(fig, use_container_width=True)
     with col_r:
         st.markdown("<div class='section-label'>Export macompta.fr</div>", unsafe_allow_html=True)
@@ -782,7 +782,7 @@ elif "Rapport" in page:
         fig = px.bar(act, x="Action", y="Nb", color_discrete_sequence=["#C9A84C"], text="Nb")
         fig.update_traces(textposition="outside",marker_line_width=0)
         fig.update_layout(plot_bgcolor="transparent",paper_bgcolor="transparent",
-                          font_color="#8FA3B8",showlegend=False,
+                          font=dict(color="#8FA3B8"),showlegend=False,
                           yaxis=dict(showgrid=True,gridcolor="#1E3148",color="#4A6A8A"),
                           xaxis=dict(color="#4A6A8A"),margin=dict(t=24,b=0,l=0,r=0))
         st.plotly_chart(fig, use_container_width=True)
@@ -792,7 +792,7 @@ elif "Rapport" in page:
         fig2 = px.bar(mvt, x="SKU", y="Sorties", color_discrete_sequence=["#3A9BD5"], text="Sorties")
         fig2.update_traces(textposition="outside",marker_line_width=0)
         fig2.update_layout(plot_bgcolor="transparent",paper_bgcolor="transparent",
-                           font_color="#8FA3B8",showlegend=False,
+                           font=dict(color="#8FA3B8"),showlegend=False,
                            yaxis=dict(showgrid=True,gridcolor="#1E3148",color="#4A6A8A"),
                            xaxis=dict(color="#4A6A8A",tickangle=-20),margin=dict(t=24,b=0,l=0,r=0))
         st.plotly_chart(fig2, use_container_width=True)
