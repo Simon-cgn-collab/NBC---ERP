@@ -1,0 +1,22 @@
+# ════════════════════════════════════════════
+#  NBC ERP — Thème visuel
+#  Modifie ces valeurs directement sur GitHub
+#  puis sauvegarde → l'app se met à jour
+# ════════════════════════════════════════════
+
+[theme]
+
+# Couleur principale (boutons, accents)
+primaryColor = "#1A1A1A"
+
+# Fond de la page principale
+backgroundColor = "#F7F7F5"
+
+# Fond de la sidebar et des cards
+secondaryBackgroundColor = "#FFFFFF"
+
+# Couleur du texte
+textColor = "#1A1A1A"
+
+# Police : "sans serif" | "serif" | "monospace"
+font = "sans serif"
