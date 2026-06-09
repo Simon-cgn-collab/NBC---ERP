@@ -521,7 +521,7 @@ if "Accueil" in page:
             ca = pd.DataFrame({"Mois":["Fév","Mar","Avr","Mai","Juin"],"CA":[ 1200,2100,2800,3860,4320]})
             fig = px.bar(ca, x="Mois", y="CA", color_discrete_sequence=["#C9A84C"], text="CA")
             fig.update_traces(texttemplate="%{text:,} €", textposition="outside", marker_line_width=0)
-            fig.update_layout(plot_bgcolor="transparent", paper_bgcolor="transparent",
+            fig.update_layout(plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)",
                               font=dict(color="#8FA3B8"), showlegend=False,
                               yaxis=dict(showgrid=True, gridcolor="#1E3148", tickfont=dict(color="#4A6A8A")),
                               xaxis=dict(tickfont=dict(color="#4A6A8A")), margin=dict(t=24,b=0,l=0,r=0))
@@ -536,7 +536,7 @@ if "Accueil" in page:
             fig2 = px.pie(ca_m, values="CA", names="Marque",
                           color_discrete_sequence=["#C9A84C","#3A9BD5","#9B59B6","#27AE60","#E8834A"],
                           hole=0.5)
-            fig2.update_layout(plot_bgcolor="transparent", paper_bgcolor="transparent",
+            fig2.update_layout(plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)",
                                font=dict(color="#8FA3B8"), showlegend=True,
                                legend=dict(font=dict(color="#8FA3B8",size=11)),
                                margin=dict(t=10,b=10,l=0,r=0))
@@ -743,7 +743,7 @@ elif "Compta" in page:
         cam = pd.DataFrame({"Marque":["Krush","Kingdom","Indochine","Samaï","Wingman"],"CA":[6800,3200,2400,1400,480]})
         fig = px.pie(cam, values="CA", names="Marque", hole=0.55,
                      color_discrete_sequence=["#C9A84C","#3A9BD5","#9B59B6","#27AE60","#E8834A"])
-        fig.update_layout(plot_bgcolor="transparent",paper_bgcolor="transparent",
+        fig.update_layout(plot_bgcolor="rgba(0,0,0,0)",paper_bgcolor="rgba(0,0,0,0)",
                           font=dict(color="#8FA3B8"),legend=dict(font=dict(color="#8FA3B8")),
                           margin=dict(t=10,b=10))
         fig.update_traces(textinfo="percent",textfont=dict(color="white"))
@@ -781,7 +781,7 @@ elif "Rapport" in page:
         act = pd.DataFrame({"Action":["1ers contacts","Relances J+7","Relances J+14","Réponses","RDV"],"Nb":[7,3,1,2,1]})
         fig = px.bar(act, x="Action", y="Nb", color_discrete_sequence=["#C9A84C"], text="Nb")
         fig.update_traces(textposition="outside",marker_line_width=0)
-        fig.update_layout(plot_bgcolor="transparent",paper_bgcolor="transparent",
+        fig.update_layout(plot_bgcolor="rgba(0,0,0,0)",paper_bgcolor="rgba(0,0,0,0)",
                           font=dict(color="#8FA3B8"),showlegend=False,
                           yaxis=dict(showgrid=True,gridcolor="#1E3148",tickfont=dict(color="#4A6A8A")),
                           xaxis=dict(tickfont=dict(color="#4A6A8A")),margin=dict(t=24,b=0,l=0,r=0))
@@ -791,7 +791,7 @@ elif "Rapport" in page:
         mvt = pd.DataFrame({"SKU":["Krush Lime","Krush Yuzu","Kingdom IPA","Indochine","Samaï"],"Sorties":[18,24,12,8,6]})
         fig2 = px.bar(mvt, x="SKU", y="Sorties", color_discrete_sequence=["#3A9BD5"], text="Sorties")
         fig2.update_traces(textposition="outside",marker_line_width=0)
-        fig2.update_layout(plot_bgcolor="transparent",paper_bgcolor="transparent",
+        fig2.update_layout(plot_bgcolor="rgba(0,0,0,0)",paper_bgcolor="rgba(0,0,0,0)",
                            font=dict(color="#8FA3B8"),showlegend=False,
                            yaxis=dict(showgrid=True,gridcolor="#1E3148",tickfont=dict(color="#4A6A8A")),
                            xaxis=dict(tickangle=-20, tickfont=dict(color="#4A6A8A")),margin=dict(t=24,b=0,l=0,r=0))
