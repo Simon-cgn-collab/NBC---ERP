@@ -60,6 +60,13 @@ st.markdown(f"""
     margin: 1px 6px !important;
     width: calc(100% - 12px) !important;
     letter-spacing: 0.01em !important;
+    opacity: 1 !important;
+}}
+[data-testid="stSidebar"] .stRadio label p,
+[data-testid="stSidebar"] .stRadio label span,
+[data-testid="stSidebar"] .stRadio label div {{
+    color: #1A1A1A !important;
+    opacity: 1 !important;
 }}
 [data-testid="stSidebar"] .stRadio label:hover {{
     background: #F1F0EF !important;
