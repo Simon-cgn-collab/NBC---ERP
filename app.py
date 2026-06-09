@@ -39,34 +39,44 @@ st.markdown(f"""
 
 /* ── Sidebar ── */
 [data-testid="stSidebar"] {{
-    background: linear-gradient(180deg, #0A1520 0%, #0D1B2A 100%);
-    border-right: 1px solid #1E3148;
+    background: #FFFFFF !important;
+    border-right: 1px solid #E8E8E6 !important;
 }}
-[data-testid="stSidebar"] * {{ color: #E8EDF2 !important; font-family: 'Inter', sans-serif !important; }}
+[data-testid="stSidebar"] * {{ font-family: 'Inter', sans-serif !important; }}
 [data-testid="stSidebarContent"] {{ padding: 0 !important; }}
 
 /* ── Radio nav ── */
 [data-testid="stSidebar"] .stRadio > div {{ gap: 2px !important; }}
 [data-testid="stSidebar"] .stRadio label {{
-    background: transparent;
-    border-radius: 8px;
-    padding: 10px 14px !important;
-    font-size: 14px !important;
+    background: transparent !important;
+    border-radius: 6px !important;
+    padding: 9px 12px !important;
+    font-size: 15px !important;
     font-weight: 500 !important;
-    color: #8FA3B8 !important;
-    transition: all 0.2s;
+    color: #37352F !important;
+    transition: background 0.12s ease;
     cursor: pointer;
     border: none !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin: 1px 6px !important;
+    width: calc(100% - 12px) !important;
+    letter-spacing: 0.02em !important;
 }}
 [data-testid="stSidebar"] .stRadio label:hover {{
-    background: #162032 !important;
-    color: #C9A84C !important;
+    background: #F1F0EF !important;
+    color: #37352F !important;
 }}
 [data-testid="stSidebar"] [aria-checked="true"] + label,
 [data-testid="stSidebar"] .stRadio label[data-selected="true"] {{
-    background: linear-gradient(90deg, #162032, #1A2840) !important;
-    color: #C9A84C !important;
-    border-left: 3px solid #C9A84C !important;
+    background: #E9E9E7 !important;
+    color: #37352F !important;
+    font-weight: 600 !important;
+    border-left: none !important;
+}}
+[data-testid="stSidebar"] .stRadio > div > label > div:first-child {{
+    display: none !important;
 }}
 
 /* ── Metrics ── */
@@ -333,24 +343,33 @@ PHASE_COLORS = {
 
 def sidebar_logo():
     st.markdown(f"""
-    <div style='padding:24px 20px 12px 20px; text-align:center;'>
-        <img src='data:image/png;base64,{LOGO_B64}'
-             style='width:90px; filter:brightness(0) invert(1); margin-bottom:8px;'/>
-        <div style='font-size:10px; color:#4A6A8A; letter-spacing:2px; text-transform:uppercase;
-                    font-weight:600; margin-top:4px;'>Internal Platform</div>
+    <div style='padding:20px 18px 10px 18px;'>
+        <div style='display:flex; align-items:center; gap:10px;'>
+            <img src='data:image/png;base64,{LOGO_B64}'
+                 style='width:36px; height:36px; object-fit:contain; border-radius:6px; background:#0D1B2A; padding:4px;'/>
+            <div>
+                <div style='font-size:14px; font-weight:700; color:#37352F; letter-spacing:0.01em; line-height:1.2;'>NBC ERP</div>
+                <div style='font-size:10px; color:#9B9B97; font-weight:500; letter-spacing:0.04em; text-transform:uppercase;'>Internal platform</div>
+            </div>
+        </div>
     </div>
-    <div style='height:1px; background:linear-gradient(90deg,transparent,#C9A84C44,transparent); margin:0 20px 16px 20px;'></div>
+    <div style='height:1px; background:#E8E8E6; margin:10px 12px 4px 12px;'></div>
     """, unsafe_allow_html=True)
 
 def user_badge(role, name):
-    badge = "badge-admin" if role == "admin" else "badge-com"
-    label = "ADMIN" if role == "admin" else "COMMERCIAL"
+    icon = "👑" if role == "admin" else "💼"
+    label = "Admin" if role == "admin" else "Commercial"
     st.markdown(f"""
-    <div style='padding:0 20px 16px 20px; text-align:center;'>
-        <div class='{badge}'>{label}</div>
-        <div style='font-size:12px; color:#4A6A8A; margin-top:8px; font-weight:500;'>{name}</div>
+    <div style='padding:8px 18px 12px 18px;'>
+        <div style='display:flex; align-items:center; gap:9px;'>
+            <div style='width:30px;height:30px;border-radius:50%;background:#F1F0EF;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;'>{icon}</div>
+            <div>
+                <div style='font-size:13px;font-weight:600;color:#37352F;line-height:1.2;'>{name.split()[0]}</div>
+                <div style='font-size:11px;color:#9B9B97;font-weight:400;'>{label}</div>
+            </div>
+        </div>
     </div>
-    <div style='height:1px; background:#1E3148; margin:0 20px 16px 20px;'></div>
+    <div style='height:1px; background:#E8E8E6; margin:0 12px 8px 12px;'></div>
     """, unsafe_allow_html=True)
 
 def page_header(title, subtitle=""):
@@ -447,15 +466,37 @@ with st.sidebar:
         pages = ["🏠  Accueil", "🤝  CRM Pipeline", "📧  Emails", "📦  Stocks",
                  "🧾  Facturation", "💰  Compta", "📊  Rapport semaine", "⚙️  Paramètres"]
 
-    st.markdown("<div style='padding:0 10px;'>", unsafe_allow_html=True)
+    st.markdown("<div style='padding:0 6px; color:#9B9B97; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; margin: 6px 12px 4px 12px;'>Navigation</div>", unsafe_allow_html=True)
+    st.markdown("<div style='padding:0 6px;'>", unsafe_allow_html=True)
     page = st.radio("", pages, label_visibility="collapsed")
     st.markdown("</div>", unsafe_allow_html=True)
 
-    st.markdown("<div style='position:absolute;bottom:20px;left:0;right:0;padding:0 16px;'>", unsafe_allow_html=True)
-    if st.button("Déconnexion", use_container_width=True):
+    st.markdown("<div style='height:1px;background:#E8E8E6;margin:12px 12px 8px 12px;'></div>", unsafe_allow_html=True)
+    st.markdown("""
+    <style>
+    [data-testid="stSidebar"] .stButton > button {
+        background: transparent !important;
+        color: #9B9B97 !important;
+        border: 1px solid #E8E8E6 !important;
+        border-radius: 6px !important;
+        font-size: 13px !important;
+        font-weight: 500 !important;
+        box-shadow: none !important;
+        padding: 7px 14px !important;
+        margin: 0 6px !important;
+        width: calc(100% - 12px) !important;
+    }
+    [data-testid="stSidebar"] .stButton > button:hover {
+        background: #F1F0EF !important;
+        color: #37352F !important;
+        transform: none !important;
+        box-shadow: none !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    if st.button("⬅  Déconnexion", use_container_width=True):
         st.session_state.logged_in = False
         st.rerun()
-    st.markdown("</div>", unsafe_allow_html=True)
 
 # ══════════════════════════════════════════════════════════════════
 #  PAGE : ACCUEIL
