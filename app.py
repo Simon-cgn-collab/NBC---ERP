@@ -523,8 +523,8 @@ if "Accueil" in page:
             fig.update_traces(texttemplate="%{text:,} €", textposition="outside", marker_line_width=0)
             fig.update_layout(plot_bgcolor="transparent", paper_bgcolor="transparent",
                               font=dict(color="#8FA3B8"), showlegend=False,
-                              yaxis=dict(showgrid=True, gridcolor="#1E3148", color="#4A6A8A"),
-                              xaxis=dict(color="#4A6A8A"), margin=dict(t=24,b=0,l=0,r=0))
+                              yaxis=dict(showgrid=True, gridcolor="#1E3148", tickfont=dict(color="#4A6A8A")),
+                              xaxis=dict(tickfont=dict(color="#4A6A8A")), margin=dict(t=24,b=0,l=0,r=0))
             st.plotly_chart(fig, use_container_width=True)
 
         with col_r:
@@ -783,8 +783,8 @@ elif "Rapport" in page:
         fig.update_traces(textposition="outside",marker_line_width=0)
         fig.update_layout(plot_bgcolor="transparent",paper_bgcolor="transparent",
                           font=dict(color="#8FA3B8"),showlegend=False,
-                          yaxis=dict(showgrid=True,gridcolor="#1E3148",color="#4A6A8A"),
-                          xaxis=dict(color="#4A6A8A"),margin=dict(t=24,b=0,l=0,r=0))
+                          yaxis=dict(showgrid=True,gridcolor="#1E3148",tickfont=dict(color="#4A6A8A")),
+                          xaxis=dict(tickfont=dict(color="#4A6A8A")),margin=dict(t=24,b=0,l=0,r=0))
         st.plotly_chart(fig, use_container_width=True)
     with col_r:
         st.markdown("<div class='section-label'>Mouvements stock</div>", unsafe_allow_html=True)
@@ -793,8 +793,8 @@ elif "Rapport" in page:
         fig2.update_traces(textposition="outside",marker_line_width=0)
         fig2.update_layout(plot_bgcolor="transparent",paper_bgcolor="transparent",
                            font=dict(color="#8FA3B8"),showlegend=False,
-                           yaxis=dict(showgrid=True,gridcolor="#1E3148",color="#4A6A8A"),
-                           xaxis=dict(color="#4A6A8A",tickangle=-20),margin=dict(t=24,b=0,l=0,r=0))
+                           yaxis=dict(showgrid=True,gridcolor="#1E3148",tickfont=dict(color="#4A6A8A")),
+                           xaxis=dict(tickangle=-20, tickfont=dict(color="#4A6A8A")),margin=dict(t=24,b=0,l=0,r=0))
         st.plotly_chart(fig2, use_container_width=True)
 
     st.markdown("<div class='section-label'>Points d'attention</div>", unsafe_allow_html=True)
