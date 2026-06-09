@@ -53,7 +53,7 @@ st.markdown(f"""
     padding: 9px 12px !important;
     font-size: 14px !important;
     font-weight: 500 !important;
-    color: #374151 !important;
+    color: #1A1A1A !important;
     transition: background 0.12s ease;
     cursor: pointer;
     border: none !important;
